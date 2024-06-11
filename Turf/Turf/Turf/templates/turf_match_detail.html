@@ -1,0 +1,67 @@
+{% include 'turf_header.html' %}
+
+<!-- <style type="text/css">
+	th{
+		text-align: right;
+	}
+</style> -->
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br>
+<center>
+	<h1>Turf Match Details</h1>
+	{% if data['match'] %}
+	<h3>{{ data['user'][0]['name'] }} V/S {{data['match'][0]['name']}}</h3>
+	<table style="text-align: left">
+		<tr>
+			<th>Selected Day</th>
+			<td>: {{ data['match'][0]['day'] }}</td>
+		</tr>
+		<tr>
+			<th>Selected Time</th>
+			<td>: {{data['match'][0]['from_time']}} to {{data['match'][0]['to_time']}}</td>
+		</tr>
+		<tr>
+			<th>Amount</th>
+			<td>: {{data['match'][0]['amount']}}</td>
+		</tr>
+		<tr>
+			<th>Match Updated date</th>
+			<td>: {{data['match'][0]['dt']}}</td>
+		</tr>
+	</table>
+	<br>
+	<table border=2>
+		<tr>
+			<th>{{ data['user'][0]['name'] }}</th>
+			<th>{{ data['match'][0]['name'] }}</th>
+		</tr>
+		<tr>
+			<td>{{ data['user'][0]['house_name'] }}</td>
+			<td>{{ data['match'][0]['house_name'] }}</td>
+		</tr>
+		<tr>
+			<td>{{ data['user'][0]['place'] }}</td>
+			<td>{{ data['match'][0]['place'] }}</td>
+		</tr>
+		<tr>
+			<td>{{ data['user'][0]['pincode'] }}</td>
+			<td>{{ data['match'][0]['pincode'] }}</td>
+		</tr>
+		<tr>
+			<td>{{ data['user'][0]['email'] }}</td>
+			<td>{{ data['match'][0]['email'] }}</td>
+		</tr>
+		<tr>
+			<td>{{ data['user'][0]['phone'] }}</td>
+			<td>{{ data['match'][0]['phone'] }}</td>
+		</tr>
+	</table>
+	{% else %}
+	<h2>No Matches Scheduled</h2>
+	{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,66 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<form method="post" enctype="multipart/form-data">
+{% if data['updates'] %}
+<h1>Update Coaching Times</h1><br>
+	<table class="table" style="width: 500px;">
+		<tr>
+			<td>Date</td>
+			<td><input type="date" value="{{data['updates'][0]['date']}}" required class="form-control" name="dt"></td>
+		</tr>
+		<tr>
+			<td>Time</td>
+			<td><input type="time" value="{{data['updates'][0]['time']}}" required class="form-control" name="tm"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit_update" value="Update"></td>
+		</tr>
+	</table>
+{% else %}
+	<h1>Add Coaching Schedule</h1><br><br>
+	<table  class="table" style="width: 500px;">
+		<tr>
+			<td>Date</td>
+			<td><input type="date" required class="form-control" name="dt"></td>
+		</tr>
+		<tr>
+			<td>Time</td>
+			<td><input type="time" required class="form-control" name="tm"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+{% endif %}
+</form>
+
+<br>
+
+{% if data['schedule'] %}
+<h2>Scheduled Time</h2><br>
+<table class="table" style="width:700px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>Date</th>
+		<th> Time</th>
+	</tr>
+	{% for row in data['schedule'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['date'] }}</td>
+		<td>{{ row['time'] }}</td>
+		<td><a class="btn btn-success" href="?action=update&sid={{row['schedule_id']}}&id={{data['id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&sid={{row['schedule_id']}}&id={{data['id']}}">Remove</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No coaching time Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

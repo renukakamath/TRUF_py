@@ -1,0 +1,32 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center><br>
+	<h1>Feedback Details</h1><br>
+	{% if data['feedback'] %}
+	<table class="table">
+		<tr>
+			<th>Sl.No</th>
+			<th>Customer Name</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Updated on</th>
+		</tr>
+		{% for row in data['feedback'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['name'] }}</td>
+			<td>{{ row['title'] }}</td>
+			<td>{{ row['description'] }}</td>
+			<td>{{ row['date_time'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}<br>
+	<h3 style="color:orange">No Feedback History</h3><br>
+	{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

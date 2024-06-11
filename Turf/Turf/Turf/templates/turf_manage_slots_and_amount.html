@@ -1,0 +1,110 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<form method="post" enctype="multipart/form-data">
+{% if data['updates'] %}
+<h1>Update Slots and Amount</h1><br>
+	<table>
+		<tr>
+			<td>Day</td>
+			<td>
+				<select required="" class="form-control" name="day">
+					<option>{{data['updates'][0]['day']}}</option>
+					<option>Sunday</option>
+					<option>Monday</option>
+					<option>Tuesday</option>
+					<option>Wednseday</option>
+					<option>Thursday</option>
+					<option>Friday</option>
+					<option>Saturday</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>From Time</td>
+			<td><input type="time" value="{{data['updates'][0]['from_time']}}" required class="form-control" name="ftime"></td>
+		</tr>
+		<tr>
+			<td>To Time</td>
+			<td><input type="time" value="{{data['updates'][0]['to_time']}}" required class="form-control" name="ttime"></td>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="number" value="{{data['updates'][0]['amount']}}" class="form-control" required name="amt"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit_update" value="Update"></td>
+		</tr>
+	</table>
+{% else %}
+	<h1>Add Slots and Amount</h1><br><br>
+	<table>
+		<tr>
+			<td>Day</td>
+			<td>
+				<select required="" class="form-control" name="day">
+					<option>Sunday</option>
+					<option>Monday</option>
+					<option>Tuesday</option>
+					<option>Wednseday</option>
+					<option>Thursday</option>
+					<option>Friday</option>
+					<option>Saturday</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>From Time</td>
+			<td><input type="time" required class="form-control" name="ftime"></td>
+		</tr>
+		<tr>
+			<td>To Time</td>
+			<td><input type="time" required class="form-control" name="ttime"></td>
+		</tr>
+		<tr>
+			<td>Amount</td>
+			<td><input type="number" class="form-control" required name="amt"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+{% endif %}
+</form>
+
+<br>
+
+{% if data['slots'] %}
+<h2>Slots Details</h2><br>
+<table class="table" style="width:700px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>Day</th>
+		<th>From Time</th>
+		<th>To Time</th>
+		<th>Amount</th>
+		<th>Updated date</th>
+		<th colspan="2"></th>
+	</tr>
+	{% for row in data['slots'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['day'] }}</td>
+		<td>{{ row['from_time'] }}</td>
+		<td>{{ row['to_time'] }}</td>
+		<td>{{ row['amount'] }}</td>
+		<td>{{ row['date_time'] }}</td>
+		<td><a class="btn btn-success" href="?action=update&sid={{row['slot_id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&sid={{row['slot_id']}}">Remove</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No slots Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

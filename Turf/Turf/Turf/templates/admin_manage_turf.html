@@ -1,0 +1,45 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br>
+<center>
+	<h2>Manage Turf</h2>
+{% if data['turf_details'] %}<br>
+	<table class="table">
+		<tr>
+			<th>Sl.No</th>
+			<th>Turf Name</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th></th>
+		</tr>
+		{% for row in data['turf_details'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['turf_name'] }}</td>
+			<td>{{ row['turf_place'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+			<td>
+				{% if row['usertype']=='NA' %}
+				<a class="btn btn-success" href="?action=accept&tid={{row['login_id']}}">Accept</a><br><a class="btn btn-danger" href="?action=reject&tid={{row['login_id']}}">Reject</a>
+				{% elif row['usertype']=='rejected' %}
+				<a class="btn btn-success" href="?action=accept&tid={{row['login_id']}}">Accept</a>
+				{% elif row['usertype']=='shop' %}
+				<a class="btn btn-danger" href="?action=reject&tid={{row['login_id']}}">Reject</a>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	</table><br><br>
+{% else %}
+<h1>No Turf Requests</h1><br><br><br><br>
+{% endif %}
+
+<br><br>
+</center>
+{% include 'footer.html' %}

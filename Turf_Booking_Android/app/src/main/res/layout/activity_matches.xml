@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jumb"
+    android:padding="40dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ScheduleMatches">
+
+    <TextView
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="#D8D2D2"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Matches" />
+
+    <ListView
+        android:id="@+id/lv1"
+        android:dividerHeight="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>

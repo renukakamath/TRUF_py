@@ -1,0 +1,39 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1>Make YOUR Gallery</h1>
+<br><br>
+		<table>
+			<tr style="color:darkgrey">
+				<th>Game Image</th><form method=post enctype="multipart/form-data">
+				<td><input class="form-control" required="" type="file" name="img1"></td>
+				<td><input class="btn btn-secondary" value="submit" type="submit" name="sm1"></td></form>
+			</tr>
+			<tr><td><br><br></td></tr>
+			<tr style="color:darkgrey">
+				<th>Infrastructure Image</th><form method=post enctype="multipart/form-data">
+				<td><input class="form-control" required="" type="file" name="img2"></td>
+				<td><input class="btn btn-secondary" value="submit" type="submit" name="sm2"></td></form>
+			</tr>
+			<tr><td><br><br></td></tr>
+			<tr style="color:darkgrey">
+				<th>Facility Image</th><form method=post enctype="multipart/form-data">
+				<td><input class="form-control" required="" type="file" name="img3"></td>
+				<td><input class="btn btn-secondary" value="submit" type="submit" name="sm3"></td></form>
+			</tr>
+		</table>
+<br><br>
+{% if data['view_img'] %}
+<a class="btn btn-success" href="turf_gallery?image_type=game">Game</a>&nbsp;&nbsp;
+
+<a class="btn btn-info" href="turf_gallery?image_type=infrastructure">Infrastructure</a>&nbsp;&nbsp;
+<a class="btn btn-warning"  href="turf_gallery?image_type=facility">Facility</a>
+{% else %}
+<h3>No Images Added</h3>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

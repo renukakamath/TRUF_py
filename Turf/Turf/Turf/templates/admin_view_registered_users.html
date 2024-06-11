@@ -1,0 +1,32 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1>Registered User Details</h1>
+	<table class="table">
+		<tr>
+			<th>Sl.No</th>
+			<th>Name</th>
+			<th>House Name</th>
+			<th>Place</th>
+			<th>Pincode</th>
+			<th>Phone</th>
+			<th>Email</th>
+		</tr>
+		{% for row in data['user_details'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['first_name'] }}</td>
+			<td>{{ row['house_name'] }}</td>
+			<td>{{ row['place'] }}</td>
+			<td>{{ row['pincode'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center><br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,123 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+
+
+    android:layout_height="fill_parent" >
+
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:background="@drawable/jumb"
+        android:padding="40dp"
+    android:orientation="vertical"
+
+     >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="#D8D2D2"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Register Here"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/editTextfname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#fff"
+        android:hint="First Name" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextlname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fff"
+        android:ems="10"
+        android:hint="Last Name" />
+
+
+    
+    <EditText
+        android:id="@+id/editTexthname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fff"
+        android:ems="10"
+        android:hint="House Name" />
+    
+    <EditText
+        android:id="@+id/editTextplace"
+        android:layout_width="match_parent"
+        android:textColorHint="#fff"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Place" />
+
+    <EditText
+        android:id="@+id/editTextpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColorHint="#fff"
+        android:hint="Pincode"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fff"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="number" />
+    
+    <EditText
+        android:id="@+id/editTextemail"
+        android:layout_width="match_parent"
+        android:textColorHint="#fff"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+    
+     <EditText
+        android:id="@+id/editTextuname"
+         android:textColorHint="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username" />
+     
+     <EditText
+        android:id="@+id/editTextpass"
+        android:hint="Password"
+        android:layout_width="match_parent"
+         android:textColorHint="#fff"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#0ddbd1"
+        android:textColorHint="#fff"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</LinearLayout>
+
+</ScrollView>

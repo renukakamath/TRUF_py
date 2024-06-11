@@ -1,0 +1,95 @@
+{% include 'homeheader.html' %}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+    <script type="text/javascript">
+        // window.onload = function () {
+        	function myFunction(){
+            var mapOptions = {
+                center: new google.maps.LatLng(9.9763482, 76.286272),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+                alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+                document.getElementById('lati').value = e.latLng.lat();
+                document.getElementById('longi').value = e.latLng.lng();
+
+            });
+        }
+    </script>
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br>
+	<center>
+		<br>
+		<h1>REGISTRATION</h1>
+		<br><br>
+	<form method="post" enctype="multipart/form-data">
+	<table>
+<tr>
+	<td>
+		<table><tr>
+			<th>First Name</th>
+			<td><input type="text" name="fname" pattern="[a-zA-Z]+$" title="enter alphabets only" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" pattern="[a-zA-Z]+$" title="enter alphabets only" name="lname" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Turf Place</th>
+			<td><input type="text" pattern="[a-zA-Z]+$" title="enter alphabets only"  name="turf_place" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Land Mark</th>
+			<td><input type="text" name="land_mark" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Pincode</th>
+			<td><input type="text" name="pincode" required class="form-control" pattern="[0-9]{6}"></td>
+		</tr>
+		<tr>
+			<th>Latitude</th>
+			<td><input type="text" required id="lati" class="form-control" name="lat"></td><td><a onclick="myFunction();">View Map</a>
+					</td>
+		</tr>
+		<tr>
+			<th>Longitude</th>
+			<td><input type="text" name="long" id="longi" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Phone Number</th>
+			<td><input type="text" name="phone" required class="form-control" pattern="[0-9]{10}"></td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td><input type="email" name="email" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td><input type="text" name="uname" required class="form-control" pattern="[0-9a-zA-Z]{0,30}"></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td><input type="password" pattern="[0-9a-zA-Z]{0,30}" name="passs" required class="form-control"></td>
+		</tr>
+		<tr><td><br></td></tr>
+		<tr>
+			<th align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit" value="Register"></th>
+		</tr>
+
+
+	</table>
+	</td>
+	<td><div id="dvMap" style="width: 600px; height: 400px"></div></td>
+</tr>
+</table>
+		
+	</form>
+	</center><br><br><br>
+{% include 'footer.html' %}

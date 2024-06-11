@@ -1,0 +1,50 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br>
+<center>
+{% if data['msgs'] %}
+	<h1>Complaints and Reply</h1><br>
+	<form method="post">
+		<table class="table">
+			<tr>
+				<th>Sl.No</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>mail</th>
+				<th>Complaint</th>
+				<th>Reply</th>
+			</tr>
+			{% for row in data['msgs'] %}
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{ row['username'] }}</td>
+				<td>{{ row['phone'] }}</td>
+				<td>{{ row['email'] }}</td>
+				<td>{{ row['complaint'] }}</td>
+				<td>
+					{% if row['reply']=='pending' %}
+					<input class="form-control" required="" type="text" name="reply{{loop.index}}">
+					<input class="form-control" type="hidden" value="{{ row['complaint_id'] }}" name="complaint_id{{loop.index}}">
+					<input type="submit" value="SEND" class="btn btn-primary" name="submit{{loop.index}}">
+					{% else %}
+					{{ row['reply'] }}
+					{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+		</table><br><br>
+	</form>
+
+{% else %}
+
+	<h1>No Complaints Registered Yet</h1>
+
+{% endif %}
+
+</center>
+<br><br>
+{% include 'footer.html' %}

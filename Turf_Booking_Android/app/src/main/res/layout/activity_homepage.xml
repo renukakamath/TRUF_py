@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jumb"
+    android:padding="40dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Homepage">
+
+
+    <Button
+        android:id="@+id/btturf"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+
+        android:text="Turfs" />
+    <Button
+        android:id="@+id/btbookings"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="15dp"
+        android:text="Bookings" />
+
+    <Button
+        android:id="@+id/btcomplaint"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Complaint" />
+
+    <Button
+        android:id="@+id/btgallery"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Gallery" />
+    <Button
+        android:id="@+id/btmymatches"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="My Matches" />
+    <Button
+        android:id="@+id/btmatcherequests"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Matche Requests" />
+
+    <Button
+        android:id="@+id/btlogout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Logout" />
+
+
+
+</LinearLayout>

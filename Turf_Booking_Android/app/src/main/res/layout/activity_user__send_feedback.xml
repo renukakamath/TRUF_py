@@ -1,0 +1,64 @@
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:background="@drawable/jumb"
+        android:padding="40dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Feedback"
+        android:layout_gravity="center"
+        android:textColor="#D8D2D2"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <EditText
+            android:id="@+id/ettitle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:text="#D8D2D2"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+
+    <EditText
+        android:id="@+id/etfeedback"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#D8D2D2"
+        android:layout_height="wrap_content"
+        android:hint="Write your Feedback here"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+
+        <Button
+        android:id="@+id/btsendfeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#088D14"
+        android:textColor="#D8D2D2"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="Send" />
+
+    <ListView
+        android:id="@+id/lvfeedbacklist"
+        android:dividerHeight="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

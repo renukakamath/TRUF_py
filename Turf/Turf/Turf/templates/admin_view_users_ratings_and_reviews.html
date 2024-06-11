@@ -1,0 +1,30 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+<h2>Ratings and Reviews</h2><br>
+{% if data['ratings'] %}
+<table class="table" style="width:500px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>Turf Name</th>
+		<th></th>
+	</tr>
+	{% for row in data['ratings'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['turf_name'] }}</td>
+		<td>
+			<a class="btn btn-info" href="admin_turf_rate?tid={{row['turf_id']}}">View Details</a>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No reviews and ratings Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

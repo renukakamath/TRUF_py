@@ -1,0 +1,29 @@
+{% include 'admin_header.html' %}
+<center>
+<h2>Slots Details</h2><br>
+{% if data['slots'] %}
+<table class="table" style="width:700px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>Day</th>
+		<th>From Time</th>
+		<th>To Time</th>
+		<th>Amount</th>
+		<th>Updated date</th>
+	</tr>
+	{% for row in data['slots'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['day'] }}</td>
+		<td>{{ row['from_time'] }}</td>
+		<td>{{ row['to_time'] }}</td>
+		<td>{{ row['amount'] }}</td>
+		<td>{{ row['date_time'] }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No slots Added Yet</h2>
+{% endif %}
+</center>
+{% include 'footer.html' %}

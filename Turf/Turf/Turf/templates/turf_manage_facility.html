@@ -1,0 +1,78 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h2>Manage Facilities</h2>
+<form method="post" enctype="multipart/form-data">
+{% if data['updates'] %}
+	<h2>Update Facility</h2><br>
+	<table>
+		<tr>
+			<td>Facility Name</td>
+			<td><input type="text" class="form-control" required="" name="fac" value="{{data['updates'][0]['facility']}}"></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" value="{{data['updates'][0]['description']}}" required class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<td>Image</td>
+			<td><input type="file" value="{{data['updates'][0]['image']}}" name="image" class="form-control"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit_update" value="Update"></td>
+		</tr>
+	</table><br>
+
+{% else %}
+
+	<h2>Add Facility</h2><br>
+	<table>
+		<tr>
+			<td>Facility Name</td>
+			<td><input type="text" required class="form-control" name="fac"></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" required class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<td>Image</td>
+			<td><input type="file" name="image" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+	{% endif %}
+</form>
+<br>
+{% if data['fac'] %}
+<h2>Facility Details</h2><br>
+<table class="table" style="width:500px">
+	<tr>
+		<th>Sl.No</th>
+		<th>Facility</th>
+		<th>Description</th>
+		<th>Image</th>
+		<th colspan="2"></th>
+	</tr>
+	{% for row in data['fac'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['facility'] }}</td>
+		<td>{{ row['description'] }}</td>
+		<td><a href="/{{row['image']}}"><img src="/{{row['image']}}" width="50" height="50"></a></td>
+		<td><a class="btn btn-success" href="?action=update&fid={{row['facility_id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&fid={{row['facility_id']}}">Remove</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No facilities Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

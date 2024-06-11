@@ -1,0 +1,77 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<form method="post">
+
+
+{% if data['commision'] %}
+<h1>Commision Details</h1><br>
+<table class="table" style="width:700px">
+	<tr>
+		<th>Sl.No</th>
+		<th>Percentage</th>
+		<th colspan="2"></th>
+	</tr>
+	{% for row in data['commision'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['percentage'] }}%</td>
+		<td><a class="btn btn-success" href="?action=update&cid={{row['commision_id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&cid={{row['commision_id']}}">Remove</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% if data['updates'] %}
+	<h2>Update Commision</h2><br>
+	<table>
+		<tr>
+			<td>Update Commision in Percentage:</td>
+			<td><input type="number" class="form-control" required="" name="perc" value="{{data['updates'][0]['percentage']}}">%</td>
+		</tr>
+		<tr><td><br></td></tr>
+		<tr>
+			<td align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit_update" value="Update"></td>
+		</tr>
+		<tr><td><br></td></tr>
+	</table><br>
+	{% endif %}
+{% else %}
+
+	{% if data['updates'] %}
+	<h2>Update Commision</h2><br>
+	<table>
+		<tr>
+			<td>Update Commision in Percentage:</td>
+			<td><input type="number" class="form-control" required="" name="perc" value="{{data['updates'][0]['percentage']}}">%</td>
+		</tr>
+		<tr><td><br></td></tr>
+		<tr>
+			<td align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit_update" value="Update"></td>
+		</tr>
+		<tr><td><br></td></tr>
+	</table><br>
+	{% else %}
+	<h2>Set Commision</h2><br>
+	<table>
+		<tr>
+			<td>Set Commision in Percentage:</td>
+			<td><input type="number" required class="form-control" name="perc">%</td>
+		</tr>
+		<tr><td><br></td></tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add Commision"></td>
+		</tr>
+		<tr><td><br></td></tr>
+	</table>
+	{% endif %}
+</form>
+
+<br>
+{% endif %}
+
+</center><br><br>
+{% include 'footer.html' %}

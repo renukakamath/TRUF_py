@@ -1,0 +1,168 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<form method="post" enctype="multipart/form-data">
+{% if data['updates'] %}
+<h1>Coach Details</h1><br>
+	<table class="table" style="width: 600px">
+		<tr>
+			<td>First Name</td>
+			<td><input type="text" value="{{data['updates'][0]['fname']}}" required class="form-control" name="fn"></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td><input type="text" value="{{data['updates'][0]['lname']}}" required class="form-control" name="ln"></td>
+		</tr>
+		<tr>
+			<td>Place</td>
+			<td><input type="text" value="{{data['updates'][0]['place']}}" class="form-control" required name="pl"></td>
+		</tr>
+
+		<tr>
+			<td>Phone</td>
+			<td><input type="text" pattern="[0-9]{10}" value="{{data['updates'][0]['phone']}}" required class="form-control" name="ph"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="email" value="{{data['updates'][0]['email']}}" required class="form-control" name="em"></td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td><input type="text" value="{{data['updates'][0]['age']}}" class="form-control" required name="age"></td>
+		</tr>
+
+		<tr>
+			<td>Gender</td>
+			<td>
+				<input type="radio" checked="" name="gen" value="Male">Male
+				<input type="radio" name="gen" value="Female">Female
+				<input type="radio" name="gen" value="Others">Others
+			</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" value="{{data['updates'][0]['description']}}" required class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<td>Sports Type</td>
+			<td><input type="text" value="{{data['updates'][0]['sports_type']}}" class="form-control" required name="st"></td>
+		</tr>
+		<tr>
+			<td>Fee Amount</td>
+			<td><input type="text" value="{{data['updates'][0]['fee_amount']}}" class="form-control" required name="fa"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit_update" value="Update"></td>
+		</tr>
+	</table>
+{% else %}
+	<h1>Add Coaches</h1><br><br>
+	<table style="width: 600px">
+		<tr>
+			<td>First Name</td>
+			<td><input type="text"  required class="form-control" name="fn"></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td><input type="text"  required class="form-control" name="ln"></td>
+		</tr>
+		<tr>
+			<td>Place</td>
+			<td><input type="text" class="form-control" required name="pl"></td>
+		</tr>
+
+		<tr>
+			<td>Phone</td>
+			<td><input type="text" pattern="[0-9]{10}"  required class="form-control" name="ph"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="email" required class="form-control" name="em"></td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td><input type="text"  class="form-control" required name="age"></td>
+		</tr>
+
+		<tr>
+			<td>Gender</td>
+			<td>
+				<input type="radio" checked="" name="gen" value="Male">Male
+				<input type="radio" name="gen" value="Female">Female
+				<input type="radio" name="gen" value="Others">Others
+			</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input type="text"  required class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<td>Sports Type</td>
+			<td><input type="text"  class="form-control" required name="st"></td>
+		</tr>
+		<tr>
+			<td>Fee Amount</td>
+			<td><input type="text" class="form-control" required name="fa"></td>
+		</tr>
+		<tr>
+			<td>User Name</td>
+			<td><input type="text"  class="form-control" required name="un"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" class="form-control" required name="pwd"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+{% endif %}
+</form>
+
+<br>
+
+{% if data['cc'] %}
+<h2>Coaches</h2><br>
+<table class="table" style="width:1300px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Place</th>
+		<th>Phone</th>
+		<th>Email</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Description</th>
+		<th>Sports Type</th>
+		<th>Fee Amount</th>
+	</tr>
+	{% for row in data['cc'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['fname'] }}</td>
+		<td>{{ row['lname'] }}</td>
+		<td>{{ row['place'] }}</td>
+		<td>{{ row['phone'] }}</td>
+		<td>{{ row['email'] }}</td>
+
+		<td>{{ row['age'] }}</td>
+		<td>{{ row['gender'] }}</td>
+		<td>{{ row['description'] }}</td>
+		<td>{{ row['sports_type'] }}</td>
+		<td>{{ row['fee_amount'] }}</td>
+		<td><a class="btn btn-success" href="?action=update&sid={{row['login_id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&sid={{row['login_id']}}">Remove</a></td>
+		<td><a class="btn btn-info" href="turf_schedule_coaching_time?id={{row['coach_id']}}">Schedule Coaching Time</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No coaches Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

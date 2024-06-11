@@ -1,0 +1,30 @@
+{% include 'admin_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+<h2>Slots Details</h2><br>
+{% if data['slots'] %}
+<table class="table" style="width:500px; text-align: center">
+	<tr>
+		<th>Sl.No</th>
+		<th>Turf Name</th>
+		<th></th>
+	</tr>
+	{% for row in data['slots'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['turf_name'] }}</td>
+		<td>
+			<a class="btn btn-success" href="admin_view_slot_details?tid={{row['turf_id']}}">View Details</a>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No slots Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}
